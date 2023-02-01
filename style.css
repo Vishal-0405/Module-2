@@ -1,0 +1,35 @@
+*{
+  padding-top: 25px;
+  background-color: rgb(120, 214, 183);
+}
+
+.four_image {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.item {
+  width: 25%;
+  text-align: center;
+  cursor: pointer;
+}
+
+.form {
+  display: none;
+  position: absolute;
+  top: 75%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: aqua;
+  padding: 1px;
+  }
+
+.pic{
+  width: 260px;
+  height: 320px;
+}
+
+#diceImg{
+  width: 260px;
+  height: 320px;
+  }
