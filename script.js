@@ -60,7 +60,7 @@ img3.addEventListener("click", function () {
 function validateDiceAttempts() {
   if (attempt < 3 && allowedTimes > 0) {
     let randomNum = Math.floor(Math.random() * 6) + 1;
-    result.innerHTML = ` The number you got is ${randomNum}. ${attempt - 2} attempt left`;
+    result.innerHTML = ` The number you got is ${randomNum}. You have ${attempt - 2} attempt left`;
     result.style.display = "block";
     sum += randomNum;
     attempt++;
@@ -75,10 +75,10 @@ function validateDiceAttempts() {
        {
          if (attempt === 3) {
             if (allowedTimes <= 0) {
-              result.innerHTML = `Bad luck. The number you got is ${randomNum}. Your present total is ${sum}. You missed by ${10 - sum}. Score more than 10 to unlock next image.  `;
+              result.innerHTML = `Bad luck. The number you got is ${randomNum}. Your present total is ${sum}. You missed by ${10 - sum}.`;
               result.style.display = "block";
             } else {
-              result.innerHTML = `Your Total Sum is ${sum} , which is less than 10 . Please Try Again. Click on Image 3. You have one more attempt left.`;
+              result.innerHTML = `Your Total Sum is ${sum} , which is not more than 10 . Please Try Again. Click on Image 3. You have one more chance left.`;
               result.style.display = "block";
           
               dice.removeChild(diceImg)
