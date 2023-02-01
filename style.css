@@ -7,8 +7,9 @@ html{
   margin-top: 10%;
   display: flex;
   flex-wrap: wrap;
+  align-items:center;
   
-}
+  }
 
 .item {
   width: 25%;
@@ -22,16 +23,22 @@ html{
   top: 75%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: aqua;
-  padding: 1px;
+  background-color:rgb(120, 214, 183);
+  
   }
 
 .pic{
-  width: 260px;
-  height: 320px;
+  width: 90%;
+  
 }
 
 #diceImg{
   width: 260px;
   height: 320px;
   }
+
+#congoImg{
+    width: 260px;
+    height: 320px;
+    }
+

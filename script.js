@@ -55,12 +55,11 @@ if (!img3Clicked && img2Clicked) {
       if (attempt === 3) {
         if (sum > 10) {
           img4.style.cursor = "pointer";
+          result.innerHTML = "You can click on next image to see your coupon code";
+          result.style.display = "block";
         } else {
           if (attempt === 3) {
-            result.innerHTML = "Bad luck";
-            result.style.display = "block";
-          } else {
-            result.innerHTML = "Score more than 10 to unlock next image";
+            result.innerHTML = `Bad luck. Score more than 10 to unlock next image. Your present total is ${sum}. You missed by ${10-sum} `;
             result.style.display = "block";
           }
         }
@@ -80,11 +79,12 @@ if (!img4Clicked && sum > 10 && attempt === 3) {
   coupon.style.display = "block";
   
   img4Clicked = true;
-  result.innerHTML = "Congratulations! You have unlocked a coupon.";
-  result.style.display = "block";
   let congoImg = document.createElement("img");
   congoImg.src = "images/congrats.jpg";
-  congoImg.id = "diceImg";
+  congoImg.id = "congoImg";
+  result.innerHTML = "Congratulations! You have unlocked a coupon.";
+  result.style.display = "block";
+
   
 }
 });
