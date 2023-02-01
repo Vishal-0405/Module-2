@@ -78,11 +78,13 @@ if (!img4Clicked && sum > 10 && attempt === 3) {
   }
   coupon.innerHTML = couponCode;
   coupon.style.display = "block";
+  
   img4Clicked = true;
+  result.innerHTML = "Congratulations! You have unlocked a coupon.";
+  result.style.display = "block";
   let congoImg = document.createElement("img");
   congoImg.src = "images/congrats.jpg";
   congoImg.id = "diceImg";
-  result.innerHTML = "Congratulations! You have unlocked a coupon.";
-  result.style.display = "block";
+  
 }
 });

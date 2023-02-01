@@ -1,11 +1,13 @@
-*{
-  padding-top: 25px;
+html{
+  
   background-color: rgb(120, 214, 183);
 }
 
 .four_image {
+  margin-top: 10%;
   display: flex;
   flex-wrap: wrap;
+  
 }
 
 .item {
