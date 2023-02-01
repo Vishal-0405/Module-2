@@ -4,7 +4,7 @@ html{
 }
 
 .four_image {
-  margin-top: 1%;
+  margin-top: 5%;
   display: flex;
   flex-wrap: wrap;
   align-items:center;
@@ -22,6 +22,8 @@ html{
   position: absolute;
   top: 75%;
   left: 50%;
+  width: 5rem;
+  line-height: 2rem;
   transform: translate(-50%, -50%);
   background-color:rgb(120, 214, 183);
   
@@ -44,3 +46,16 @@ html{
     width: 420px;
     }
 
+.btn {
+      background: #c455b5;
+      background-image: -o-linear-gradient(top, #c455b5, #2bb8b8);
+      background-image: linear-gradient(to bottom, #c455b5, #2bb8b8);
+      
+      border-radius: 13px;
+      font-family: Georgia;
+      color: #ffffff;
+      font-size: 10px;
+      padding: 7px 14px 7px 14px;
+      text-decoration: none;
+    }
+    
