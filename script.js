@@ -3,6 +3,7 @@ let img2Clicked = false;
 let img3Clicked = false;
 let img4Clicked = false;
 let attempt = 0;
+let allowedTimes = 2;
 let sum = 0;
 let name;
 let username;
@@ -44,36 +45,54 @@ img2.addEventListener("click", function () {
 img3.addEventListener("click", function () {
   if (!img3Clicked && img2Clicked) {
     dice.style.display = "block";
+    // diceImg.style.display = "block";
     let diceImg = document.createElement("img");
     diceImg.src = "images/dice.jpg";
     diceImg.id = "diceImg";
     dice.appendChild(diceImg);
     img3Clicked = true;
     diceImg.addEventListener("click", function () {
-      if (attempt < 3) {
-        let randomNum = Math.floor(Math.random() * 6) + 1;
-        result.innerHTML = ` The number you got is ${randomNum}. ${attempt - 2} attempt left`;
-        result.style.display = "block";
-        sum += randomNum;
-        attempt++;
-
-        if (attempt === 3) {
-          if (sum > 10) {
-            img4.style.cursor = "pointer";
-            result.innerHTML = `The number you got is ${randomNum}. Your total sum is ${sum}. You can click on next image to see your coupon code`;
-            result.style.display = "block";
-          } else 
-           {
-             if (attempt === 3) {
-              result.innerHTML = `Bad luck. The number you got is ${randomNum}. Your present total is ${sum}. You missed by ${10 - sum}. Score more than 10 to unlock next image.  `;
-              result.style.display = "block";
-             }
-
-           }
-        }
-      }});
+        validateDiceAttempts()
+      });
   }
 });
+
+function validateDiceAttempts() {
+  if (attempt < 3 && allowedTimes > 0) {
+    let randomNum = Math.floor(Math.random() * 6) + 1;
+    result.innerHTML = ` The number you got is ${randomNum}. ${attempt - 2} attempt left`;
+    result.style.display = "block";
+    sum += randomNum;
+    attempt++;
+
+    if (attempt === 3) {
+      allowedTimes--
+      if (sum > 10) {
+        img4.style.cursor = "pointer";
+        result.innerHTML = `The number you got is ${randomNum}. Your total sum is ${sum}. You can click on next image to see your coupon code`;
+        result.style.display = "block";
+      } else 
+       {
+         if (attempt === 3) {
+            if (allowedTimes <= 0) {
+              result.innerHTML = `Bad luck. The number you got is ${randomNum}. Your present total is ${sum}. You missed by ${10 - sum}. Score more than 10 to unlock next image.  `;
+              result.style.display = "block";
+            } else {
+              result.innerHTML = `Your Total Sum is ${sum} , which is less than 10 . Please Try Again. Click on Image 3. You have one more attempt left.`;
+              result.style.display = "block";
+          
+              dice.removeChild(diceImg)
+              img3Clicked=false;
+              attempt = 0
+              sum = 0
+            }
+          
+         }
+
+       }
+    }
+  }
+}
 
 
 img4.addEventListener("click", function () {
@@ -85,7 +104,7 @@ img4.addEventListener("click", function () {
       couponCode += characters.charAt(Math.floor(Math.random() * charactersLength));
 
     }
-
+    diceImg.style.display = "none";
     coupon.innerHTML = `You have unlocked a coupon. Your coupon code is ${couponCode}`;
     coupon.style.display = "block";
 

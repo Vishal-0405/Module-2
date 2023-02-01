@@ -8,7 +8,6 @@ html{
   display: flex;
   flex-wrap: wrap;
   align-items:center;
-  
   }
 
 .item {
@@ -22,7 +21,7 @@ html{
   position: absolute;
   top: 75%;
   left: 50%;
-  width: 5rem;
+  width: 90%;
   line-height: 2rem;
   transform: translate(-50%, -50%);
   background-color:rgb(120, 214, 183);
@@ -35,16 +34,12 @@ html{
   }
 
 #diceImg{
-  position: absolute;
-  top: 55%;
-  left: 20%;
+  position: relative;
   width: 20rem;
   }
 
 #congoImg{
-  position: absolute;
-  top: 55%;
-  right: 20%;
+  position: relative;
   width: 20rem;
 
     }
