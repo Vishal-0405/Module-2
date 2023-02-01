@@ -4,7 +4,7 @@ html{
 }
 
 .four_image {
-  margin-top: 10%;
+  margin-top: 1%;
   display: flex;
   flex-wrap: wrap;
   align-items:center;
@@ -28,7 +28,8 @@ html{
   }
 
 .pic{
-  width: 90%;
+  width: 80%;
+  height: auto;
   
 }
 
@@ -38,7 +39,8 @@ html{
   }
 
 #congoImg{
-    width: 260px;
+    
     height: 320px;
+    width: 420px;
     }
 

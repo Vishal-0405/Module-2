@@ -16,6 +16,7 @@ const displayUsername = document.getElementById("displayUsername");
 const dice = document.getElementById("dice");
 const coupon = document.getElementById("coupon");
 const result = document.getElementById("result");
+const congo = document.getElementById("congoImg");
 
 img1.addEventListener("click", function() {
   if (!img1Clicked) {
@@ -50,18 +51,22 @@ if (!img3Clicked && img2Clicked) {
   diceImg.addEventListener("click", function() {
     if (attempt < 3) {
       let randomNum = Math.floor(Math.random() * 6) + 1;
+      result.innerHTML = ` The number you got is ${randomNum}. ${attempt-2} attempt left`;
+      result.style.display = "block";
       sum += randomNum;
       attempt++;
+      
       if (attempt === 3) {
         if (sum > 10) {
           img4.style.cursor = "pointer";
-          result.innerHTML = "You can click on next image to see your coupon code";
+          result.innerHTML = `The number you got is ${randomNum}. Your total sum is ${sum}. You can click on next image to see your coupon code`;
           result.style.display = "block";
         } else {
           if (attempt === 3) {
-            result.innerHTML = `Bad luck. Score more than 10 to unlock next image. Your present total is ${sum}. You missed by ${10-sum} `;
+            result.innerHTML = `Bad luck. The number you got is ${randomNum}. Your present total is ${sum}. You missed by ${10-sum}. Score more than 10 to unlock next image.  `;
             result.style.display = "block";
           }
+          
         }
       }
     }
@@ -72,19 +77,26 @@ if (!img3Clicked && img2Clicked) {
 img4.addEventListener("click", function() {
 if (!img4Clicked && sum > 10 && attempt === 3) {
   let couponCode = "";
+  const characters = '0123456789';
+  const charactersLength = characters.length;
   for (let i = 0; i < 12; i++) {
-    couponCode += Math.floor(Math.random() * 10);
+    couponCode += characters.charAt(Math.floor(Math.random() * charactersLength));
+ 
   }
-  coupon.innerHTML = couponCode;
+  
+  coupon.innerHTML = `You have unlocked a coupon. ${couponCode}`;
   coupon.style.display = "block";
   
-  img4Clicked = true;
-  let congoImg = document.createElement("img");
-  congoImg.src = "images/congrats.jpg";
-  congoImg.id = "congoImg";
-  result.innerHTML = "Congratulations! You have unlocked a coupon.";
+  result.innerHTML = "Congratulations!";
   result.style.display = "block";
-
+ 
+  
+  dice.style.display = "block";
+  let congoImg = document.createElement("img");
+  congoImg.src = "images/cc.png";
+  congoImg.id = "congoImg";
+  congo.appendChild(congoImg);
+  img4Clicked = true; 
   
 }
 });
