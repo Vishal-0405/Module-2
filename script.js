@@ -27,14 +27,14 @@ img1.addEventListener("click", function () {
 
 form.addEventListener("submit", function (e) {
   e.preventDefault();
-  name = document.getElementById("name").value;
+  fname = document.getElementById("fname").value;
   username = document.getElementById("username").value;
   form.style.display = "none";
 });
 
 img2.addEventListener("click", function () {
   if (!img2Clicked && img1Clicked) {
-    displayUsername.innerHTML = "Name: " + name + "<br>" + "Username: " + username;
+    displayUsername.innerHTML = "Name: " + fname + "<br>" + "Username: " + username;
     displayUsername.style.display = "block";
     img2Clicked = true;
   }
@@ -62,16 +62,16 @@ img3.addEventListener("click", function () {
             img4.style.cursor = "pointer";
             result.innerHTML = `The number you got is ${randomNum}. Your total sum is ${sum}. You can click on next image to see your coupon code`;
             result.style.display = "block";
-          } else {
-            if (attempt === 3) {
+          } else 
+           {
+             if (attempt === 3) {
               result.innerHTML = `Bad luck. The number you got is ${randomNum}. Your present total is ${sum}. You missed by ${10 - sum}. Score more than 10 to unlock next image.  `;
               result.style.display = "block";
-            }
+             }
 
-          }
+           }
         }
-      }
-    });
+      }});
   }
 });
 
@@ -98,7 +98,5 @@ img4.addEventListener("click", function () {
     congoImg.src = "images/cc.png";
     congoImg.id = "congoImg";
     congo.appendChild(congoImg);
-
-
   }
 });
